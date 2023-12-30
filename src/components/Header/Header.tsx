@@ -20,15 +20,30 @@ const Header = () => {
 					</li>
 				</ul>
 			</div>
-			<ul className="flex items-center justify-between w-full md:w-1/3">
-				<li className="hover:-translate-y-2 duration-500 transition-all hover:text-[#f27405]">
-					<Link href="/">Home</Link>
+			<ul className="flex items-center justify-between w-full md:w-1/3 ">
+				<li className=" pr-0.5 relative">
+					<Link
+						href="/rooms"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-red-600 after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+					>
+						Home
+					</Link>
 				</li>
-				<li className="hover:-translate-y-2 duration-500 transition-all hover:text-[#f27405]">
-					<Link href="/rooms">Rooms</Link>
+				<li className=" pr-0.5 relative">
+					<Link
+						href="/rooms"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-red-600 after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+					>
+						Rooms
+					</Link>
 				</li>
-				<li className="hover:-translate-y-2 duration-500 transition-all hover:text-[#f27405]">
-					<Link href="/">Contacts</Link>
+				<li className=" pr-0.5 relative">
+					<Link
+						href="/rooms"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-red-600 after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+					>
+						Contact
+					</Link>
 				</li>
 			</ul>
 		</header>
