@@ -1,8 +1,19 @@
+"use client";
+
+import ThemeContext from "@/context/themeContext";
 import Link from "next/link";
+import { useContext } from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Header = () => {
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const handleCheckboxChange = () => {
+		setDarkTheme(!darkTheme);
+		darkTheme
+			? localStorage.setItem("hotelz-item", "true")
+			: localStorage.removeItem("hotelz-item");
+	};
 	return (
 		<header className="py-10 px-4 container mx-auto text-xl flex flex-wrap md:flex-nowrap items-center justify-between">
 			<div className="flex items-center w-full md:2/3">
@@ -15,8 +26,35 @@ const Header = () => {
 							<FaUserCircle className="cursor-pointer" />
 						</Link>
 					</li>
-					<li className="ml-2">
-						<MdDarkMode className="cursor-pointer" />
+					<li className="ml-4">
+						<label className="relative inline-flex cursor-pointer select-none items-center  ">
+							<input
+								type="checkbox"
+								checked={darkTheme}
+								onChange={handleCheckboxChange}
+								className="sr-only"
+							/>
+							<div className="shadow-card flex h-8 w-16 gap-1 items-center justify-center rounded-full dark:bg-[#1e1e1e] dark:text-white bg-[#cecece]">
+								<span
+									className={`flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 ${
+										!darkTheme
+											? "bg-tertiary-dark text-white"
+											: "text-body-color "
+									}`}
+								>
+									<MdLightMode />
+								</span>
+								<span
+									className={`flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 ${
+										darkTheme
+											? "bg-tertiary-dark text-white"
+											: "text-body-color"
+									}`}
+								>
+									<MdDarkMode />
+								</span>
+							</div>
+						</label>
 					</li>
 				</ul>
 			</div>
