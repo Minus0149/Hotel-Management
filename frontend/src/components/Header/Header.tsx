@@ -77,7 +77,7 @@ const Header = () => {
 				</li>
 				<li className=" pr-0.5 relative">
 					<Link
-						href="/#contact"
+						href="#contact"
 						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark dark:after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
 					>
 						Contact
