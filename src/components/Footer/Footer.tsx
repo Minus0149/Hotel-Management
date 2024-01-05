@@ -12,7 +12,7 @@ const Footer = () => {
 
 				<h4 className="font-semibold text-[40px] py-6">Contact</h4>
 
-				<div className="flex flex-wrap gap-16 items-center justify-between">
+				<div className="flex flex-wrap flex-col sm:flex-row gap-16 items-start sm:items-center justify-between">
 					<div className="flex-1">
 						<p>123 Road</p>
 						<div className="flex items-center py-4">

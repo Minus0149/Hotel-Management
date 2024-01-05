@@ -10,9 +10,9 @@ const Header = () => {
 	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 	const handleCheckboxChange = () => {
 		setDarkTheme(!darkTheme);
-		darkTheme
-			? localStorage.setItem("hotelz-item", "true")
-			: localStorage.removeItem("hotelz-item");
+		!darkTheme
+			? localStorage.setItem("hotelz-theme", "true")
+			: localStorage.removeItem("hotelz-theme");
 	};
 	return (
 		<header className="py-10 px-4 container mx-auto text-xl flex flex-wrap md:flex-nowrap items-center justify-between">
@@ -34,7 +34,7 @@ const Header = () => {
 								onChange={handleCheckboxChange}
 								className="sr-only"
 							/>
-							<div className="shadow-card flex h-8 w-16 gap-1 items-center justify-center rounded-full dark:bg-[#1e1e1e] dark:text-white bg-[#cecece]">
+							<div className="flex h-8 w-16 gap-1 items-center justify-center rounded-full dark:bg-[#1e1e1e] dark:text-white bg-[#cecece]">
 								<span
 									className={`flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 ${
 										!darkTheme
@@ -62,7 +62,7 @@ const Header = () => {
 				<li className=" pr-0.5 relative">
 					<Link
 						href="/"
-						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark dark:after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
 					>
 						Home
 					</Link>
@@ -70,7 +70,7 @@ const Header = () => {
 				<li className=" pr-0.5 relative">
 					<Link
 						href="/rooms"
-						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark dark:after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
 					>
 						Rooms
 					</Link>
@@ -78,7 +78,7 @@ const Header = () => {
 				<li className=" pr-0.5 relative">
 					<Link
 						href="/#contact"
-						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
+						className="after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark dark:after:bg-tertiary-light after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap"
 					>
 						Contact
 					</Link>
