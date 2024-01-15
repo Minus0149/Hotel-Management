@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
+import useTheme from "@/context/theme";
 
 const poppins = Poppins({
 	subsets: ["latin"],
