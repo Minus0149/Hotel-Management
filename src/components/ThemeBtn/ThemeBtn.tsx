@@ -13,7 +13,7 @@ function ThemeBtn() {
 		<label className="relative inline-flex items-center cursor-pointer select-none mt-[7px]">
 			<input
 				type="checkbox"
-				value=""
+				id="themeToggler"
 				className="sr-only peer"
 				onChange={handleCheckboxChange}
 				checked={darkTheme}
