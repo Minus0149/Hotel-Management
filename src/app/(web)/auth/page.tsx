@@ -52,6 +52,7 @@ const Auth = () => {
 						type="email"
 						name="email"
 						placeholder="name@company.com"
+						autoComplete="email"
 						required
 						className={inputStyles}
 						value={formData.email}
@@ -61,6 +62,7 @@ const Auth = () => {
 						type="text"
 						name="name"
 						placeholder="John Doe"
+						autoComplete="name"
 						required
 						className={inputStyles}
 						value={formData.name}
