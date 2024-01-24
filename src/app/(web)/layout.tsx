@@ -4,7 +4,8 @@ import { Poppins } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
-import useTheme from "@/context/theme";
+import NextAuthProvider from "@/components/AuthProvider/AuthProvider";
+import Toast from "@/components/Toast/Toast";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -26,11 +27,14 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="scroll-smooth">
 			<body className={poppins.className}>
-				<ThemeProvider>
-					<Header />
-					<main className="font-normal">{children}</main>
-					<Footer />
-				</ThemeProvider>
+				<NextAuthProvider>
+					<ThemeProvider>
+						<Toast />
+						<Header />
+						<main className="font-normal">{children}</main>
+						<Footer />
+					</ThemeProvider>
+				</NextAuthProvider>
 			</body>
 		</html>
 	);

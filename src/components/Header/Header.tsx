@@ -5,11 +5,15 @@ import { FaUserCircle } from "react-icons/fa";
 import ThemeBtn from "../ThemeBtn/ThemeBtn";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 const Header = () => {
 	const pathname = usePathname();
 	const [contactActive, setContactActive] = useState(false);
 	const [hash, setHash] = useState(window.location.hash || "");
+	const { data: session } = useSession();
+
 	useEffect(() => {
 		contactActive
 			? document
@@ -31,21 +35,50 @@ const Header = () => {
 				</Link>
 				<ul className="flex items-center ml-5">
 					<li className="flex items-center">
-						<Link
-							href="/auth"
-							onClick={() => {
-								setContactActive(false);
-								setHash("");
-							}}
-						>
-							<FaUserCircle
-								className={`${
-									pathname === "/auth" && hash !== "#contact"
-										? "text-tertiary-dark"
-										: ""
-								} cursor-pointer`}
-							/>
-						</Link>
+						{session?.user ? (
+							<Link
+								href={`/users/${session.user.id}`}
+								onClick={() => {
+									setContactActive(false);
+									setHash("");
+								}}
+							>
+								{session.user.image ? (
+									<div className="w-10 h-10 rounded-full overflow-hidden">
+										<Image
+											src={session.user.image}
+											alt={session.user.name!}
+											width={40}
+											height={40}
+										/>
+									</div>
+								) : (
+									<FaUserCircle
+										className={`${
+											pathname === "/auth" && hash !== "#contact"
+												? "text-tertiary-dark"
+												: ""
+										} cursor-pointer`}
+									/>
+								)}
+							</Link>
+						) : (
+							<Link
+								href="/auth"
+								onClick={() => {
+									setContactActive(false);
+									setHash("");
+								}}
+							>
+								<FaUserCircle
+									className={`${
+										pathname === "/auth" && hash !== "#contact"
+											? "text-tertiary-dark"
+											: ""
+									} cursor-pointer`}
+								/>
+							</Link>
+						)}
 					</li>
 					<li className="ml-4">
 						<ThemeBtn />
@@ -61,7 +94,7 @@ const Header = () => {
 							pathname === "/" && hash !== "#contact"
 								? "text-tertiary-dark"
 								: ""
-						} after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap`}
+						} underline-animation`}
 						onClick={() => {
 							setContactActive(false);
 							setHash("");
@@ -78,7 +111,7 @@ const Header = () => {
 							pathname === "/rooms" && hash !== "#contact"
 								? "text-tertiary-dark"
 								: ""
-						} after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap`}
+						} underline-animation`}
 						onClick={() => {
 							setContactActive(false);
 							setHash("");
@@ -91,7 +124,7 @@ const Header = () => {
 					<Link
 						href="#contact"
 						id="contact-link"
-						className={`after:duration-300 after:ease-in-out after:delay-0 after:transition-transform after:content-[''] after:bg-tertiary-dark after:absolute after:bottom-0 after:h-[2px] after:left-0 after:scale-x-0 after:w-full after:hover:scale-x-100  whitespace-nowrap`}
+						className={`underline-animation`}
 						onClick={() => {
 							setContactActive(true);
 							setHash("#contact");
