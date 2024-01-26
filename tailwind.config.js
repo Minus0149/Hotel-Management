@@ -9,6 +9,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			animation: {
+				wiggle: "wiggle .4s ease-in-out infinite",
+			},
 			colors: {
 				primary: "#038C7F",
 				secondary: "#F2C641",
@@ -19,6 +22,12 @@ module.exports = {
 			},
 			fontFamily: {
 				poppins: ["var(--font-poppins)", ...fontFamily.sans],
+			},
+			keyframes: {
+				wiggle: {
+					"0%, 100%": { transform: "rotate(-3deg)" },
+					"50%": { transform: "rotate(3deg)" },
+				},
 			},
 		},
 	},
