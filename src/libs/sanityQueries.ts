@@ -35,5 +35,10 @@ export const getRoomQuery = groq`*[_type == "hotelRoom" && slug.current == $slug
   name,
   price,
   slug,
+  type, 
+  discount, 
+  offeredAmenities, 
+  images, 
+  specialNote,
   type
 }`;

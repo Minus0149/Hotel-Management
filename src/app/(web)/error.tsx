@@ -1,6 +1,8 @@
 "use client";
 
-export default function Error({
+import Link from "next/link";
+
+export default function ErrorPage({
 	error,
 	reset,
 }: {
@@ -12,9 +14,14 @@ export default function Error({
 			<div className="flex flex-col gap-3 justify-center items-center h-72">
 				<h2 className="font-heading text-red-800 mb-10">{`Error : ${error.message}`}</h2>
 
-				<button onClick={() => reset()} className="btn-primary">
-					Try Again
-				</button>
+				<div className="flex gap-8 ">
+					<button onClick={() => reset()} className="btn-primary">
+						Try Again
+					</button>
+					<Link href="/">
+						<button className="btn-tertiary">Go Home</button>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
