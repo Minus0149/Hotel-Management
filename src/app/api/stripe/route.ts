@@ -57,7 +57,6 @@ export async function POST(req: Request, res: Response) {
 		const discountPrice = room.price - (room.price / 100) * room.discount;
 		const totalPrice = discountPrice * numberOfDays;
 
-		// Create a stripe payment
 		const stripeSession = await stripe.checkout.sessions.create({
 			mode: "payment",
 			line_items: [
