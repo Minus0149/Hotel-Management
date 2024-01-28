@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { Room } from "@/models/room";
 import Link from "next/link";
-import urlFor from "@/libs/urlBuilder";
+import { urlFor } from "@/libs/urlBuilder";
 
 type Props = {
 	room: Room;

@@ -1,6 +1,6 @@
 "use client";
 
-import urlFor from "@/libs/urlBuilder";
+import { urlFor } from "@/libs/urlBuilder";
 import { Room } from "@/models/room";
 import Image from "next/image";
 import { FC } from "react";
@@ -12,8 +12,6 @@ type Props = {
 
 const FeaturedRoom: FC<Props> = (props) => {
 	const { featuredRoom } = props;
-
-	console.log(featuredRoom.images.slice(0, 3));
 
 	return (
 		<section className="flex md:flex-row flex-col px-4 py-10 items-center gap-12 container mx-auto">
