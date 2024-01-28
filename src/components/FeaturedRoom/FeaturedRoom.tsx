@@ -1,6 +1,6 @@
 "use client";
 
-import urlFor from "@/libs/urlBuilder";
+import { urlFor } from "@/libs/urlBuilder";
 import { Room } from "@/models/room";
 import Image from "next/image";
 import { FC } from "react";

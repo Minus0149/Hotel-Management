@@ -5,7 +5,6 @@ import sanityConfig from "../../sanity.config";
 
 const builder = imageUrlBuilder(sanityConfig);
 
-function urlFor(source: any) {
+export function urlFor(source: any) {
 	return builder.image(source);
 }
-export default urlFor;

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Image as ImageType } from "@/models/room";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
-import urlFor from "@/libs/urlBuilder";
+import { urlFor } from "@/libs/urlBuilder";
 
 const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
 	const [currenPhotoIndex, setCurrentPhotoIndex] = useState(0);
